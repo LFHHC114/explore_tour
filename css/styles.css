@@ -1,0 +1,981 @@
+/*=========================================
+            RESET GENERAL
+=========================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#F8FAFC;
+    color:#1E293B;
+    overflow-x:hidden;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+}
+
+ul{
+    list-style:none;
+}
+
+section{
+    padding:90px 8%;
+}
+
+
+/*=========================================
+            VARIABLES
+=========================================*/
+
+:root{
+
+    --azul:#0B2C5D;
+    --turquesa:#00B8C4;
+    --blanco:#FFFFFF;
+    --gris:#F8FAFC;
+    --texto:#1E293B;
+    --sombra:0 10px 30px rgba(0,0,0,.12);
+    --degradado:linear-gradient(135deg,#00B8C4,#0B2C5D);
+
+}
+
+
+/*=========================================
+            HEADER
+=========================================*/
+
+
+/*=========================================
+            NAVBAR
+=========================================*/
+
+header{
+
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(12px);
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+    z-index:1000;
+
+}
+
+.navbar{
+
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:80px;
+
+}
+
+
+/*=========================================
+                LOGO
+=========================================*/
+
+.logo h2{
+
+    color:var(--azul);
+    font-size:34px;
+    font-weight:700;
+
+}
+
+.logo span{
+
+    color:var(--turquesa);
+
+}
+
+
+/*=========================================
+                MENÚ
+=========================================*/
+
+.menu{
+
+    display:flex;
+    align-items:center;
+    gap:35px;
+
+}
+
+.menu li{
+
+    position:relative;
+
+}
+
+.menu li a{
+
+    color:var(--texto);
+    font-size:17px;
+    font-weight:600;
+    padding:10px 5px;
+    transition:.3s;
+
+}
+
+.menu li a:hover{
+
+    color:var(--turquesa);
+
+}
+
+.menu li::after{
+
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0;
+    height:3px;
+    background:var(--turquesa);
+    border-radius:10px;
+    transition:.4s;
+
+}
+
+.menu li:hover::after{
+
+    width:100%;
+
+}
+
+
+/*=========================================
+            BOTÓN LOGIN
+=========================================*/
+
+.btn-login{
+
+    background:var(--degradado);
+    color:white;
+    padding:14px 30px;
+    border-radius:50px;
+    font-weight:600;
+    transition:.4s;
+    box-shadow:0 8px 25px rgba(0,184,196,.35);
+
+}
+
+.btn-login:hover{
+
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+}
+
+
+/*=========================================
+                HERO
+=========================================*/
+
+.hero{
+
+    height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.60)),
+    url("../img/hero.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    padding-top:90px;
+
+    color:white;
+
+}
+
+.hero-content{
+
+    max-width:850px;
+    animation:fadeIn 1.3s ease;
+
+}
+
+.hero-content h1{
+
+    font-size:68px;
+    font-weight:700;
+    margin-bottom:20px;
+    text-shadow:0 8px 20px rgba(0,0,0,.6);
+
+}
+
+.hero-content p{
+
+    font-size:22px;
+    line-height:36px;
+    margin-bottom:40px;
+    text-shadow:0 5px 15px rgba(0,0,0,.6);
+
+}
+
+
+/*=========================================
+            BOTONES HERO
+=========================================*/
+
+.hero-buttons{
+
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+
+}
+
+.btn-primary{
+
+    background:var(--degradado);
+    color:white;
+    padding:18px 40px;
+    border-radius:50px;
+    font-weight:600;
+    transition:.4s;
+    box-shadow:0 12px 30px rgba(0,184,196,.35);
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-5px);
+    box-shadow:0 18px 35px rgba(0,0,0,.25);
+
+}
+
+.btn-secondary{
+
+    border:2px solid white;
+    color:white;
+    padding:18px 40px;
+    border-radius:50px;
+    font-weight:600;
+    transition:.4s;
+
+}
+
+.btn-secondary:hover{
+
+    background:white;
+    color:var(--azul);
+    transform:translateY(-5px);
+
+}
+
+
+/*=========================================
+            ESTADÍSTICAS
+=========================================*/
+
+.stats{
+
+    background:var(--blanco);
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+
+    margin-top:-70px;
+
+    position:relative;
+
+    z-index:100;
+
+}
+
+.stat{
+
+    background:white;
+
+    padding:35px 25px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    box-shadow:var(--sombra);
+
+    transition:.4s;
+
+}
+
+.stat:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.18);
+
+}
+
+.stat i{
+
+    font-size:45px;
+
+    color:var(--turquesa);
+
+    margin-bottom:20px;
+
+}
+
+.stat h2{
+
+    font-size:38px;
+
+    color:var(--azul);
+
+    margin-bottom:10px;
+
+}
+
+.stat p{
+
+    color:#666;
+
+    font-size:17px;
+
+}
+
+
+/*=========================================
+                TOURS
+=========================================*/
+
+.tours{
+
+    background:#F5F8FC;
+
+}
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+.section-title h2{
+
+    font-size:42px;
+
+    color:var(--azul);
+
+    margin-bottom:15px;
+
+}
+
+.section-title p{
+
+    max-width:700px;
+
+    margin:auto;
+
+    color:#666;
+
+    font-size:18px;
+
+}
+
+.tour-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+
+    gap:35px;
+
+}
+.tour-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:var(--sombra);
+
+    transition:.4s;
+
+}
+
+.tour-card:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.18);
+
+}
+.tour-card img{
+
+    height:240px;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+.tour-card:hover img{
+
+    transform:scale(1.08);
+
+}
+.tour-info{
+
+    padding:25px;
+
+}
+
+.precio{
+
+    background:var(--degradado);
+
+    color:white;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.tour-info h3{
+
+    margin:20px 0 15px;
+
+    color:var(--azul);
+
+    font-size:26px;
+
+}
+
+.tour-info p{
+
+    color:#666;
+
+    line-height:28px;
+
+}
+.tour-details{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin:25px 0;
+
+    color:#555;
+
+}
+
+.tour-details i{
+
+    color:#00B8C4;
+
+}
+.btn-tour{
+
+    display:inline-block;
+
+    width:100%;
+
+    text-align:center;
+
+    background:var(--degradado);
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    transition:.4s;
+
+}
+
+.btn-tour:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.18);
+
+}
+
+
+/*=========================================
+                DESTINOS
+=========================================*/
+
+/* Aquí irá la galería de destinos */
+
+/*=========================================
+        BENEFICIOS
+=========================================*/
+
+.beneficios{
+
+    background:#ffffff;
+
+}
+
+.beneficios-container{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+    margin-top:60px;
+
+}
+
+.beneficio-card{
+
+    background:#fff;
+    padding:40px 30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.4s;
+
+}
+
+.beneficio-card:hover{
+
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+.beneficio-card i{
+
+    font-size:55px;
+    color:var(--turquesa);
+    margin-bottom:20px;
+
+}
+
+.beneficio-card h3{
+
+    color:var(--azul);
+    font-size:24px;
+    margin-bottom:15px;
+
+}
+
+.beneficio-card p{
+
+    color:#555;
+    line-height:28px;
+    font-size:16px;
+
+}
+
+/*=========================================
+        SOBRE NOSOTROS
+=========================================*/
+
+.nosotros{
+
+    background:#F8FAFC;
+
+}
+
+.nosotros-container{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+
+}
+
+.nosotros-img img{
+
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+}
+
+.nosotros-content span{
+
+    color:var(--turquesa);
+    font-size:18px;
+    font-weight:600;
+
+}
+
+.nosotros-content h2{
+
+    font-size:42px;
+    color:var(--azul);
+    margin:15px 0 25px;
+
+}
+
+.nosotros-content p{
+
+    font-size:17px;
+    color:#555;
+    line-height:30px;
+    margin-bottom:20px;
+
+}
+
+.nosotros-datos{
+
+    display:flex;
+    gap:40px;
+    margin:40px 0;
+
+}
+
+.dato h3{
+
+    font-size:38px;
+    color:var(--turquesa);
+
+}
+
+.dato p{
+
+    margin-top:8px;
+    font-size:15px;
+    color:#666;
+
+}
+
+@media(max-width:900px){
+
+.nosotros-container{
+
+    grid-template-columns:1fr;
+    text-align:center;
+
+}
+
+.nosotros-datos{
+
+    justify-content:center;
+    flex-wrap:wrap;
+
+}
+
+}
+
+
+/*=========================================
+            TESTIMONIOS
+=========================================*/
+
+/* Aquí irán las opiniones de clientes */
+
+/*=========================================
+            CONTACTO
+=========================================*/
+
+.contacto{
+
+    background:#F8FAFC;
+
+}
+
+.contacto-container{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    margin-top:60px;
+
+}
+
+.contacto-info{
+
+    background:#fff;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:var(--sombra);
+
+}
+
+.contacto-info h3{
+
+    color:var(--azul);
+    font-size:30px;
+    margin-bottom:20px;
+
+}
+
+.contacto-info p{
+
+    color:#666;
+    line-height:28px;
+    margin-bottom:30px;
+
+}
+
+.info-item{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:25px;
+
+}
+
+.info-item i{
+
+    width:50px;
+    height:50px;
+    background:var(--turquesa);
+    color:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+
+}
+
+.contact-form{
+
+    background:#fff;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:var(--sombra);
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:16px;
+    font-family:'Poppins',sans-serif;
+    outline:none;
+    transition:.3s;
+
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{
+
+    border-color:var(--turquesa);
+
+}
+
+.contact-form textarea{
+
+    resize:none;
+
+}
+
+.contact-form button{
+
+    border:none;
+    cursor:pointer;
+}
+
+@media(max-width:900px){
+
+.contacto-container{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+/*=========================================
+                FOOTER
+=========================================*/
+
+.footer{
+
+    background:var(--azul);
+    color:white;
+    padding:70px 8% 20px;
+
+}
+
+.footer-container{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:50px;
+
+}
+
+.footer-box h2{
+
+    font-size:34px;
+    margin-bottom:20px;
+
+}
+
+.footer-box h2 span{
+
+    color:var(--turquesa);
+
+}
+
+.footer-box h3{
+
+    margin-bottom:20px;
+    font-size:24px;
+
+}
+
+.footer-box p{
+
+    line-height:28px;
+    color:#d6d6d6;
+
+}
+
+.footer-box ul{
+
+    padding:0;
+
+}
+
+.footer-box ul li{
+
+    margin-bottom:15px;
+
+}
+
+.footer-box ul li a{
+
+    color:#d6d6d6;
+    transition:.3s;
+
+}
+
+.footer-box ul li a:hover{
+
+    color:var(--turquesa);
+
+}
+
+.sociales{
+
+    display:flex;
+    gap:15px;
+
+}
+
+.sociales a{
+
+    width:45px;
+    height:45px;
+    background:white;
+    color:var(--azul);
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:20px;
+
+    transition:.4s;
+
+}
+
+.sociales a:hover{
+
+    background:var(--turquesa);
+    color:white;
+    transform:translateY(-5px);
+
+}
+
+.footer-copy{
+
+    text-align:center;
+    margin-top:50px;
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,.2);
+
+}
+
+.footer-copy p{
+
+    color:#d6d6d6;
+
+}
+
+
+/*=========================================
+            RESPONSIVE
+=========================================*/
+
+/* Aquí irán las reglas para tablet y celular */
+
+
+/*=========================================
+            ANIMACIONES
+=========================================*/
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
