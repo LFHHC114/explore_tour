@@ -197,7 +197,7 @@ header{
 
     background:
     linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.60)),
-    url("../../../img/hero.jpg");
+    url("/img/Hero.jpg");
 
     background-size:cover;
     background-position:center;
@@ -978,4 +978,71 @@ header{
 
     }
 
+}
+
+/* PRUEBA TOURS */
+
+.tours {
+    background: #F5F8FC !important;
+    min-height: 100vh;
+    padding: 120px 8% 90px !important;
+}
+
+.tour-container {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 35px !important;
+}
+
+.tour-card {
+    background: white !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,.12) !important;
+}
+
+.tour-card img {
+    width: 100% !important;
+    height: 240px !important;
+    object-fit: cover !important;
+}
+
+.tour-info {
+    padding: 25px !important;
+}
+
+.tour-info h3 {
+    color: #0B2C5D !important;
+    font-size: 26px !important;
+    margin: 20px 0 15px !important;
+}
+
+.tour-info p {
+    color: #666 !important;
+    line-height: 28px !important;
+}
+
+.precio {
+    background: linear-gradient(135deg,#00B8C4,#0B2C5D) !important;
+    color: white !important;
+    padding: 8px 18px !important;
+    border-radius: 30px !important;
+    font-weight: 600 !important;
+}
+
+.tour-details {
+    display: flex !important;
+    justify-content: space-between !important;
+    margin: 25px 0 !important;
+    color: #555 !important;
+}
+
+.btn-tour {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    background: linear-gradient(135deg,#00B8C4,#0B2C5D) !important;
+    color: white !important;
+    padding: 15px !important;
+    border-radius: 50px !important;
 }
