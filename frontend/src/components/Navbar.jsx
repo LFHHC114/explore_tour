@@ -15,6 +15,7 @@ function Navbar() {
         {/* MENÚ */}
         <nav>
           <ul className="menu">
+
             <li>
               <Link to="/">Inicio</Link>
             </li>
@@ -30,6 +31,15 @@ function Navbar() {
             <li>
               <Link to="/contacto">Contacto</Link>
             </li>
+
+            <li>
+              <Link to="/login">Iniciar sesión</Link>
+            </li>
+
+            <li>
+              <Link to="/registro">Registrarse</Link>
+            </li>
+
           </ul>
         </nav>
 
