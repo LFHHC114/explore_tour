@@ -536,7 +536,10 @@ def crear_pago():
                     "mensaje": f"El campo '{campo}' es obligatorio"
                 }), 400
 
-        # Buscar reserva
+        # ============================================
+        # BUSCAR RESERVA
+        # ============================================
+
         reserva = db.query(Reserva).filter(
             Reserva.id == datos["reserva_id"]
         ).first()
@@ -546,7 +549,25 @@ def crear_pago():
                 "mensaje": "La reserva no existe"
             }), 404
 
-        # Validar monto
+        # ============================================
+        # VERIFICAR SI YA EXISTE UN PAGO
+        # ============================================
+
+        pago_existente = db.query(Pago).filter(
+            Pago.reserva_id == reserva.id
+        ).first()
+
+        if pago_existente:
+            return jsonify({
+                "mensaje": "Esta reserva ya tiene un pago registrado",
+                "pago_id": pago_existente.id,
+                "estado": pago_existente.estado
+            }), 409
+
+        # ============================================
+        # VALIDAR MONTO
+        # ============================================
+
         try:
             monto = float(datos["monto"])
         except (ValueError, TypeError):
@@ -559,7 +580,10 @@ def crear_pago():
                 "mensaje": "El monto debe ser mayor que 0"
             }), 400
 
-        # Validar método
+        # ============================================
+        # VALIDAR MÉTODO DE PAGO
+        # ============================================
+
         metodos_validos = [
             "tarjeta",
             "efectivo",
@@ -574,20 +598,25 @@ def crear_pago():
                 "metodos_validos": metodos_validos
             }), 400
 
-        # Crear pago
+        # ============================================
+        # CREAR PAGO COMO PAGADO
+        # ============================================
+
         nuevo_pago = Pago(
             reserva_id=reserva.id,
             monto=monto,
             metodo_pago=metodo_pago,
-            estado="pendiente"
+            estado="pagado"
         )
 
         db.add(nuevo_pago)
+
         db.commit()
+
         db.refresh(nuevo_pago)
 
         return jsonify({
-            "mensaje": "Pago registrado correctamente",
+            "mensaje": "Pago realizado correctamente",
             "pago": {
                 "id": nuevo_pago.id,
                 "reserva_id": nuevo_pago.reserva_id,
@@ -599,6 +628,7 @@ def crear_pago():
         }), 201
 
     except Exception as e:
+
         db.rollback()
 
         return jsonify({
@@ -643,8 +673,7 @@ def obtener_pagos():
 
     finally:
         db.close()
-
-
+        
 # =========================================================
 # EJECUTAR SERVIDOR
 # =========================================================

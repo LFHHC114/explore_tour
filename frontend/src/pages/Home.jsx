@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+
 
 function Home() {
   return (
@@ -71,9 +73,9 @@ function Home() {
                   </span>
                 </div>
 
-                <a href="#" className="btn-tour">
-                  Ver tour
-                </a>
+                <Link to="/tours" className="btn-tour">
+                  Ver tours
+                </Link>
               </div>
             </div>
 

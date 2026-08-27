@@ -17,33 +17,48 @@ function Login() {
     setError("");
 
     try {
-      const respuesta = await fetch("http://127.0.0.1:5000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          correo: correo,
-          password: password,
-        }),
-      });
+      const respuesta = await fetch(
+        "http://127.0.0.1:5000/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            correo: correo,
+            password: password,
+          }),
+        }
+      );
 
       const datos = await respuesta.json();
 
       if (!respuesta.ok) {
-        setError(datos.mensaje || "Correo o contraseña incorrectos.");
+        setError(
+          datos.error ||
+          datos.mensaje ||
+          "Correo o contraseña incorrectos."
+        );
         return;
       }
 
+      // Guardar el usuario que inició sesión
+      localStorage.setItem(
+        "usuario",
+        JSON.stringify(datos.usuario)
+      );
+
+      console.log("Usuario guardado:", datos.usuario);
+
+      // Mostrar mensaje de bienvenida
       setMensaje(
-  `Bienvenida/o ${datos.usuario.nombre}. Inicio de sesión exitoso.`
-);
+        `Bienvenida/o ${datos.usuario.nombre}. Inicio de sesión exitoso.`
+      );
 
-console.log("Usuario:", datos.usuario);
-
-setTimeout(() => {
-  navigate("/");
-}, 1500);
+      // Redirigir al inicio después de 1.5 segundos
+      setTimeout(() => {
+        navigate("/");
+      }, 1500);
 
     } catch (error) {
       console.error(error);
@@ -93,12 +108,13 @@ setTimeout(() => {
               className="contact-form"
               onSubmit={iniciarSesion}
             >
-
               <input
                 type="email"
                 placeholder="Correo electrónico"
                 value={correo}
-                onChange={(e) => setCorreo(e.target.value)}
+                onChange={(e) =>
+                  setCorreo(e.target.value)
+                }
                 required
               />
 
@@ -106,7 +122,9 @@ setTimeout(() => {
                 type="password"
                 placeholder="Contraseña"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) =>
+                  setPassword(e.target.value)
+                }
                 required
               />
 
@@ -128,7 +146,6 @@ setTimeout(() => {
                   {error}
                 </p>
               )}
-
             </form>
 
           </div>
